@@ -1,5 +1,7 @@
+const SignUpAuth = (req, res, next) => {
+    console.log(req.body);
+};
+
 export default function(app) {
-  app.get('/', (req, res, next) => {
-    res.send(['example', 'phone']);
-  });
+  app.post('/signup', SignUpAuth);
 }
