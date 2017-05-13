@@ -2,26 +2,19 @@ import express from 'express';
 import http from 'http';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
+import passport from 'passport';
+import router from './router';
 
-import {User, newUser, allUsers} from './models/users';
-
-
+//app
 const app = express();
 app.use(morgan('dev'));
 app.use(bodyParser.json({type: '*/*' }));
 
-app.get('/', (req, res, next) => {
-    res.send({
-        username: "deepak",
-        password: "123456"
-    });
-});
+//routes
+app.use(router);
+app.use(passport.initialize());
 
-app.post('/newUser', newUser);
-
-app.get('/allUsers', allUsers);
-
-
+//server
 const port  = process.env.PORT || 4001;
 const server =  http.createServer(app);
 server.listen(port, () => {
