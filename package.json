@@ -1,16 +1,19 @@
 {
-  "name": "express-auth",
+  "name": "jwt-auth",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "nodemon server.js --exec babel-tape-runner"
   },
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "jsonwebtoken": "^7.4.0",
     "morgan": "^1.8.1",
-    "nodemon": "^1.11.0"
+    "mysql": "^2.13.0",
+    "sequelize": "^3.30.4"
   },
   "devDependencies": {
     "babel": "^6.23.0",
