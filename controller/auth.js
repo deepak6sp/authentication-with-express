@@ -7,7 +7,13 @@ const token = (user) => {
   return jwt.encode({sub: user.id, iat: timeStamp}, config.secret);
 }
 
-const SignUp = (req, res, next) => {
+export const SignIn = (req, res, next) => {
+  console.log("u r in SignIn");
+  res.send({ token: token(req.user)});
+};
+
+
+export const SignUp = (req, res, next) => {
   let email = req.body.email;
   let password =  req.body.password;
 
@@ -33,5 +39,3 @@ const SignUp = (req, res, next) => {
 
   });
 };
-
-export default SignUp

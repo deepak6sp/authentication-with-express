@@ -3,7 +3,7 @@ import passport from 'passport';
 import passportService from './services/passport';
 const router = express.Router();
 
-import SignUp from './controller/auth';
+import {SignUp, SignIn} from './controller/auth';
 
 
 router.get('/', passport.authenticate('jwt', { session: false }), (req, res, next) => {
@@ -11,7 +11,8 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res, nex
 });
 
 router.post('/signup', SignUp);
-// router.post('/newUser', newUser);
+router.post('/signin', passport.authenticate('local', { session: false }), SignIn);
+// router.post('/newUser', newUser); passport.authenticate('local', { session: false }),
 //
 // AuthRoutes.get('/allUsers', allUsers);
 
